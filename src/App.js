@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Accordion, Button } from 'react-bootstrap';
 import Recipe from './Recipe';
-import RecipeModal from './RecipeModal';
+import CreateEditModal from './CreateEditModal';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class App extends Component {
     if (localStorage) {
       localStorage.setItem('recipes', JSON.stringify(newRecipes));
     }
-    this.closeModal();
+    if (action !== 'delete') this.closeModal();
   }
 
   update(action, recipe, recipes) {
@@ -75,9 +75,10 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
+            <h1 className="text-center">Recipe Box</h1>
             <Accordion>{this.getRecipes()}</Accordion>
             <Button bsStyle="primary" bsSize="large" onClick={this.openModal.bind(this, 'create')}>Add Recipe</Button>
-            <RecipeModal show={this.state.showModal} name={this.state.recipeName} ingredients={this.state.recipeIngredients}
+            <CreateEditModal show={this.state.showModal} name={this.state.recipeName} ingredients={this.state.recipeIngredients}
               purpose={this.state.modalPurpose} onHide={this.closeModal.bind(this)} update={this.updateRecipes.bind(this)}/>
           </div>
         </div>

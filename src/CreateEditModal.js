@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-class RecipeModal extends Component {
+class CreateEditModal extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -55,4 +55,4 @@ class RecipeModal extends Component {
   }
 }
 
-export default RecipeModal;
+export default CreateEditModal;

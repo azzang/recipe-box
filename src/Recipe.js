@@ -3,7 +3,6 @@ import { Panel, Button } from 'react-bootstrap';
 import './Recipe.css';
 
 class Recipe extends Component {
-
   getIngredients() {
     return this.props.ingredients.split(',').map((ingredient, i) => <li key={i}>{ingredient}</li>);
   }
